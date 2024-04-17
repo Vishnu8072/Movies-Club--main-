@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text Truncation Example</title>
+</head>
+<body>
+<div class="content">This is a very long text that will be truncated because it exceeds the maximum width allowed.</div>
+<div class="content">Another example of a long text that needs to be shortened.</div>
+<div class="content">Short text.</div>
+<script>
+    function truncateText(text, maxWidth) {
+  if (text.length <= maxWidth) {
+    return text;
+  }
+  return text.substring(0, maxWidth - 3) + "...";
+}
+
+function updateTextContent() {
+  const elements = document.querySelectorAll('.content');
+  const maxWidth = 20;  // You can adjust this value as needed
+
+  elements.forEach(element => {
+    const originalText = element.innerText;
+    const truncatedText = truncateText(originalText, maxWidth);
+    element.innerText = truncatedText;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', updateTextContent);
+
+</script>
+</body>
+</html>
